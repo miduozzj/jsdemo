@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>回到顶部</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        #btn {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            background: #aaa;
+            color: #fff;
+            right: 25px;
+            bottom: 10px;
+            display: none;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        #btn:hover {
+            background: #999;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            // var s;
+            // s='网页可见区域html高:'+document.documentElement.clientHeight
+            // +'网页可见区域body高:'+document.body.clientHeight
+            // +'浏览器内部高度:'+window.innerHeight
+            // +'网页可见区域html宽:'+document.documentElement.clientWidth
+            // +'网页可见区域body宽:'+document.body.clientWidth
+            // +'浏览器内部宽度:'+window.innerWidth
+            // +'网页可见区域htmloffset高:'+document.documentElement.offsetHeight
+            // +'网页可见区域bodyoffset高:'+document.body.offsetHeight
+
+            //  +'网页正文html全文高:'+document.documentElement.scrollHeight
+            //  +'网页正文body全文高:'+document.body.scrollHeight          
+            //    // +'网页被卷去的高:'+document.body.scrollTop
+            // // +'屏幕分辨率的高:'+window.screen.height;
+            // console.log('首次:'+s);
+            // window.onscroll=function(){
+            //     s+='网页html被卷去的高'+document.documentElement.scrollTop
+            //     +'网页被body卷去的高'+document.body.scrollTop
+            //     console.log('滚动',s);
+            // }
+            var btn = document.getElementById('btn');
+            var clientHeight = document.documentElement.clientHeight;//获取浏览器可视区域高度
+            var timer = null;//定义一个定时器
+            //  var isTop=true;//定义一个布尔值，用于判定是否到达顶部
+            window.onscroll = function (e) {
+                console.log('aaa');
+               // console.log('eeee', isTop);
+               console.log('documentElement.scrollTop',document.documentElement.scrollTop);
+               console.log('document.body.scrollTop',document.body.scrollTop);
+               var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                btn.style.display = scrollTop >= clientHeight ? 'block' : 'none';
+                //判断当点击回到顶部按钮后滚动条在回滚过程中，若手动滚动滚动条，则清除定时器
+                if (scrollTop == 0) {
+                    clearInterval(timer);
+                }
+
+                // if(!isTop){
+                //     console.log('bbb',isTop);
+                //     clearInterval(timer);
+                // }
+                // isTop = false;
+            };
+            btn.onclick = function () {
+                timer = window.setInterval(function () {
+                    console.log('interval');
+                    var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    //用于设置速度差，产生缓动的效果
+                    console.log('前', scrollTop);
+                    var speed = Math.floor(-scrollTop / 6);
+                    document.documentElement.scrollTop = document.body.scrollTop = scrollTop + speed;
+                    console.log('后', document.documentElement.scrollTop);
+                    // isTop=true;//用于阻止滚动事件清除定时器
+                    // if(isTop==0){
+                    //     console.log('ccc',isTop);
+                    //     clearInterval(timer);
+                    // }
+                    if (scrollTop == 0) {
+                        clearInterval(timer);
+                    }
+                }, 50);
+            };
+        }
+    </script>
+</head>
+
+<body style="height: 2600px">
+    <a href="javascript:;" id="btn" title="回到顶部">Top</a>
+</body>
+
+</html>
+
+
+<!-- <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <title>Document</title>
+     <style>
+         .container {
+             /* width: 600px;
+             height: 600px; */
+             padding: 10px;
+             border: 10px solid lightgray;
+             overflow: auto; 
+         }
+         .large_block {
+             width: 1000px;
+             height: 2000px;
+             background-color: lightblue;
+             padding: 20px;
+             margin: 20px;
+         }
+     </style>
+ </head>
+ <body>
+     <div class="container">
+         <div class="large_block"></div>
+     </div>
+ </body>
+ </html> -->
