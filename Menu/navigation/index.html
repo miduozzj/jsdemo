@@ -55,16 +55,17 @@
             var r = 150;
             for (var i = 0; i < imgs.length; i++) {
                 imgs[i].onclick = function () {
-                    this.style.transition = "0.3s"
-                    console.log('图片过度时间',this.style.transition);
+                  //  this.style.transition = "0.3s"
+                   console.log('图片被惦记',this);
                     this.style.WebkitTransform = " scale(2) ";
                     this.style.opacity = "0";
                     addEnd(this, end);
                 };
             }
 
-            function end() {
-                this.style.transition = "0.3s";
+            function end(e) {
+                console.log('end',e.target);
+               // this.style.transition = "0.3s";
                 this.style.WebkitTransform = " scale(1) ";
                 this.style.opacity = 1;
                 removeEnd(this, end);
@@ -92,13 +93,14 @@
             }
             function addEnd(obj, fn) {
                 // Safari 3.1 到 6.0 代码，过渡事件结束触发
-                obj.addEventListener('WebkitTransitionEnd', fn, false);
+                obj.addEventListener('webkitTransitionEnd', fn, false);
                 // 标准语法
                 obj.addEventListener('transitionend', fn, false);
             }
             function removeEnd(obj, fn) {
-                obj.removeEventListener('WebkitTranstionEnd', fn, false);
-                obj.removeEventListener('transitonend', fn, false);
+                console.log('removeend');
+                obj.removeEventListener('webkitTransitionEnd', fn, false);
+                obj.removeEventListener('transitionend', fn, false);
             }
 
             function toLT(iR, iDeg) {

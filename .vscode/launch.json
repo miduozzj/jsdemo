@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "G:/gitwork/jsdemo/Menu/scrollTop/index1.html",
+            "url": "G:/gitwork/jsdemo/float/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

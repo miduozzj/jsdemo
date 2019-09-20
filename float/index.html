@@ -1,0 +1,142 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <title>数码时钟</title>
+    <style type="text/css">
+        .wrap1{width: 1000px;}
+        div{
+              height: 200px;
+          }
+          .left{
+              float: left;
+              width: 300px;
+              background: red;
+          }
+          .right{
+              float: right;
+              width: 300px;
+              background: blue;
+          }
+          .center{
+              background: pink;
+              margin-left:300px;
+              margin-right:300px;
+          }   
+      </style>
+</head>
+<body>
+  <div class="wrap1">
+      <div class="left">left</div>
+      <div class="right">right</div>
+      <div class="center">浮动布局</div>  
+  </div>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 布局</title>
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 200px;
+    background-color:red;
+    //overflow: hidden  //会使得将container被撑高
+}
+
+.left{
+    background-color: yellow; 
+    float: left;    /*float会将行元素转变成块元素display:inline-block;*/
+    height: 50px;
+    width:50px;
+}
+.right{
+    background-color: yellow; 
+    float: right;    /*float会将行元素转变成块元素display:inline-block;*/
+    height: 50px;
+    width:50px;
+}
+</style>
+<body>
+    <div class="container">       
+        <span class="left">left</span>
+        <span>center</span>
+        <span class="right">right</span>
+    </div>
+    <div class="container" style="height: 200px;background: blue">      
+    </div>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS 布局</title>
+    <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                width: 200px;
+                background-color:red;
+            }
+            
+            .left{
+                background-color: yellow; 
+                float: left;    /*float会将行元素转变成块元素display:inline-block;*/
+                height: 50px;
+                width:50px;
+            }
+            .right{
+                background-color: yellow; 
+                float: right;    /*float会将行元素转变成块元素display:inline-block;*/
+                height: 50px;
+                width:50px;
+            }
+            </style>
+        <script>
+            setTimeout(function(){
+    for(var i = 0; i < 100000000; i++){}
+    console.log('timer a');
+}, 0)
+
+for(var j = 0; j < 5; j++){
+    console.log(j);
+}
+
+setTimeout(function(){
+    console.log('timer b');
+}, 0)
+
+function waitFiveSeconds(){
+    var now = (new Date()).getTime();
+    while(((new Date()).getTime() - now) < 5000){}
+    console.log('finished waiting');
+}
+
+document.addEventListener('click', function(){
+    console.log('click');
+})
+
+console.log('click begin');
+waitFiveSeconds();
+        </script>    
+</head>
+<body>
+     <div class="container">      <!--将容器里的行元素span改为块元素div-->
+        <div class="left">left</div>
+        <div class="center">center</div>   
+        <div class="right">right</div>
+    </div>
+    <div class="container" style="height: 200px;background: blue">      
+    </div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html style='overflow: hidden;'>
+
+<head>
+	<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'>
+	<title>document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0
+		}
+
+		body {
+			background: #f2f2f2;
+		}
+
+		ul {
+			width: 200px;
+			margin: 50px auto;
+			list-style: none;
+			text-align: center;
+			background: #fff;
+		}
+		li {
+			width: 50px;
+			height: 50px;
+			position: relative;
+			background: #aaa;
+			/* overflow: hidden; */
+		}
+		ul li:hover{ width: 200px;transition:all ease 0.2s; }
+		/* 只有鼠标滑过才会出现过渡效果 */
+        a {
+			text-decoration:none;
+			color:#333;
+			display: block;
+			width:150px;
+			line-height: 50px;
+			height:50px;
+			position: absolute;
+			left: 50px;
+			top: 0;
+		}
+		a:hover{ color: #fff; }
+		li:nth-child(1){ background:#B3C833 url("./images/icoa1.png") no-repeat 12px center; }
+		li:nth-child(2){ background:#CE5043 url("./images/icoa2.png") no-repeat 12px center; }
+		li:nth-child(3){ background:#FB8521 url("./images/icoa3.png") no-repeat 12px center; }
+		li:nth-child(4){ background:#1AA1E1 url("./images/icoa4.png") no-repeat 12px center; }
+		li:nth-child(5){ background:#5E5CA6 url("./images/icoa5.png") no-repeat 12px center; }
+		li:nth-child(6){ background:#658092 url("./images/icoa6.png") no-repeat 12px center; }
+	</style>
+	<!-- <script>
+		function tran(){
+			this.parentNode.style.width='200px';
+		}
+	</script> -->
+</head>
+<!-- ********样式继承 -->
+<body style='overflow: hidden;'>
+	<ul>    
+		<li><a href='javascript:;'>首页</a></li>
+		<li><a href='javascript:;'>111</a></li>
+		<li><a href='javascript:;'>222</a></li>
+		<li><a href='javascript:;'>333</a></li>
+		<li><a href='javascript:;'>hello</a></li>
+		<li><a href='javascript:;'>nice</a></li>
+	</ul>
+	<!-- <div>
+		   <div id='test' style='overflow:hidden'>
+			   <div style='width:50px;height:50px;padding: 10px;margin: 10px;background: red'>123</div>
+		   </div>
+		</div> -->
+		<!-- <div style='width:200px;border: turquoise solid 2px'>
+			<div style='width:30px;background: yellow' onclick="alert('111')">www</div>
+			<div style='width:20px;background: red'>ttt</div>
+		</div> -->
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
