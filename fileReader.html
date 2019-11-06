@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>fileReader</title>
+    <script>
+        window.onload=function(){
+        }
+        function addImg(self,event){
+            // console.log('yincang1',arguments);
+            // console.log('yincang2',arguments[0]);
+                // let event=e||window.event;
+                // console.log('qqqq',event);
+                // console.log('qqqqsdsdsds',self);
+                // console.log('value',self.value);
+                // console.log('files',self.files);
+                let fr=new FileReader();
+                console.log('111111111',self.files[0]);
+               // let base=fr.readAsDataURL(self.files[0]);//一般用于显示图片base64
+                let base=fr.readAsText(self.files[0]);//一般用于读取文件内容
+                // console.log('files1111',base);
+                fr.onload=function(e){//当事件发生时，浏览器会默认向事件处理函数传一个默认参数 event   事件自己可以传递实参  隐藏的一个参数
+                    // console.log('yincang1',arguments);
+                    console.log('onload',e);
+                    let url=e.target.result;
+                    console.log('onload111',url); //base64编码格式
+                }
+            }
+        function addImge(self){
+            let url=window.URL.createObjectURL(self.files[0]) //生成url扩展  可以用于在浏览器上预览本地图片或者视频 将src属性设置为url
+            console.log('dddd',url);
+        }    
+    </script>
+</head>
+<body>
+   <input type='file' onchange="addImg(this,event)"/>
+   <input type='file' onchange="addImge(this)"/>
+</body>
+</html>

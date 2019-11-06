@@ -1,47 +1,111 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>无标题文档</title>
-<style>
-	*{ margin:0;padding:0; }
-	ul{ list-style:none; }
-	a{ font-size:16px;text-decoration:none;color:#666; }
-	div{ width:300px;margin:20px auto; }
-	#list li{ line-height:40px;height:40px;background:#efefef;text-indent:1em; margin-bottom:3px;overflow:hidden;-webkit-transition:height 0.3s ease;-moz-transition:height 0.3s ease-ms-transition:height 0.3s ease;-o-transition:height 0.3s ease;transition:height 0.3s ease;}
-	#list li img{ width:300px;height:200px;}
-	#list li:nth-child(1){height:240px;background:#F36;}
-	#list li:nth-child(1) a{ color:#fff; }
-	#list:hover li{ height:40px;background:#efefef; }
-	#list:hover li a{color:#666;}
-	#list li:hover{ height:240px; background:#F36;}
-	#list li:hover a{ color:#fff; }
-</style>
+	<meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+	<title>抽屉</title>
+	<style>
+		* {
+			margin: 0px;
+			padding: 0px;
+		}
+		 ul{
+	         list-style: none
+        } 
+		div {
+			width: 300px;
+			margin: 20px auto;
+		}
+
+		a {
+			font-size: 16px;
+			text-decoration: none;
+			color: #666
+		}
+
+		#list>li {
+			line-height: 40px;
+			height: 40px;
+			 background: #efefef;
+		    margin-bottom: 3px;
+			text-indent: 1em;
+			 overflow: hidden;
+			-webkit-transition: height 0.3s ease;
+			-moz-transition: height 0.3s ease;
+			-ms-transition: height 0.3s ease;
+			-o-transition: height 0.3s ease;
+			transition: height 0.3s ease; 
+		}
+
+		#list li img {
+			width: 300px;
+			height: 200px;
+		}
+
+		#list li:nth-child(1) {
+			height: 240px;
+			background: #F36;
+		}
+
+		#list li:nth-child(1)>a {
+			color: #fff;
+		}
+
+		#list:hover li {
+			height: 40px;
+			background: #efefef;
+		}
+
+		#list:hover li a {
+			color: #666;
+		}
+
+		#list li:hover {
+			height: 240px;
+			background: #F36;
+		}
+
+		#list li:hover a {
+			color: #fff;
+		}
+	</style>
 </head>
 <body>
 	<div>
-    	<ul id="list">
-        	<li >
-            	<a href="">国际美妆抢先看</a>
-                <img src="images/1.jpg" />
-            </li>
-            <li>
-            	<a href="">女神标准大讨论</a>
-                <img src="images/2.jpg" />
-            </li>
-            <li class="select">
-            	<a href="">吃货也能越吃越瘦</a>
-                <img src="images/3.jpg" />
-            </li>
-            <li>
-            	<a href="">连衣裙抢头条</a>
-                <img src="images/4.jpg" />
-            </li>
-            <li>
-            	<a href="">宫三女主美妆对决</a>
-                <img src="images/5.jpg" />
-            </li>
-        </ul>
-    </div>
+		<ul id='list'>
+			<li>
+				<a>11111</a>
+				<img src='images/1.jpg' />
+			</li>
+			<li>
+				<a>22222</a>
+				<!-- <img src='images/2.jpg' /> -->
+			</li>
+			<li>
+				<a>33333</a>
+				<img src='images/3.jpg' />
+			</li>
+			<li>
+				<a>44444</a>
+				<img src='images/4.jpg' />
+			</li>
+			<li>
+				<a>55555</a>
+				<img src='images/5.jpg' />
+			</li>
+		</ul>
+	</div>
+	<!-- <div style='width:500px;border:1px solid black;word-break:break-all;'>
+		<span>123ddddddddddddddddddddddddddddddddddddddddddddgggggggggggg</span>
+		<span>123ddddddddddddddddddddddddddddd</span>
+		<span>123ddddddddddddddddddddddddddddd</span>
+		 <img src='images/5.jpg' />
+		<div style='width:200px;height:200px;background: blue;display:inline-block'>567</div> -->
+		<!-- <ul  style='width:200px;border:1px solid black;'>
+			<li style='width:300px;border:1px solid red;text-indent: 1em;'>1</li>
+			<li style='width:200px;border:1px solid red;overflow: hidden;text-indent: 1em;'>1</li>
+		</ul> -->
+	<!-- </div> -->
 </body>
+
 </html>

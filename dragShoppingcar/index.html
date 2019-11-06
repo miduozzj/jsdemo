@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content='text/html;charset=utf-8' />
+	<title>拖拽</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		ul {
+			list-style: none;
+			width: 600px
+		}
+
+		/* #table{border: brown 1px solid;} */
+		li {
+			float: left;
+			width: 200px;
+			;
+			margin: 10px;
+		}
+
+		ul::after {
+			content: '';
+			display: block;
+			clear: both
+		}
+
+		p {
+			height: 30px;
+			line-height: 30px;
+			text-indent: 1em;
+			font-weight: bold;
+			border-bottom: 1px #333 dashed;
+		}
+
+		#list {
+			width: 600px;
+			height: 200px;
+			border: cadetblue 1px solid;
+		}
+
+		.box1{ float:left; width:200px;}
+	.box2{ float:left; width:200px;}
+	.box3{ float:left; width:200px;}
+
+		#allMoney {
+			float: right
+		}
+	</style>
+	<script>
+		window.onload = function () {
+			let li = document.getElementsByTagName('li');
+			let list = document.getElementById('list');
+
+			for (let i = 0; i < li.length; i++) {
+				li[i].ondragstart = function (event) {
+					let ev = event || window.event;
+					let aP = this.getElementsByTagName('p');
+					ev.dataTransfer.setData('title', aP[0].innerHTML);//拖拽事件  发生时，产生的dataTransfer对象
+					//目标元素  setData    目的地  getData
+					ev.dataTransfer.setData('money', aP[1].innerHTML);
+					ev.dataTransfer.setDragImage(this,0,0);
+				}
+			}
+			list.ondragover = function (event) {
+				let ev = event || window.event;
+				ev.preventDefault ? ev.preventDefault() : (ev.returnValue = false);
+			}
+			let obj = {};
+			let num = 0;
+			let allMoney = null;
+			list.ondrop = function (event) {
+				let ev = event || window.event;
+				ev.preventDefault ? ev.preventDefault() : (ev.returnValue = false);
+
+				let t = ev.dataTransfer.getData('title');
+				let m = ev.dataTransfer.getData('money');
+				console.log('t', t);
+				console.log('m', m);
+				if (!obj[t]) {
+					obj[t] = 1;
+					let div = document.createElement('div');
+					let box1 = document.createElement('span');
+					box1.innerHTML = 1;
+					box1.className = 'box1';
+					div.appendChild(box1);
+					let box2 = document.createElement('span');
+					box2.innerHTML = t;
+					box2.className = 'box2';
+					div.appendChild(box2);
+					let box3 = document.createElement('span');
+					box3.innerHTML = m;
+					box3.className = 'box3';
+					div.appendChild(box3);
+					list.appendChild(div);
+				} else {
+					let box1 = document.getElementsByClassName('box1');
+					let box2 = document.getElementsByClassName('box2');
+					for (let i = 0; i < box2.length; i++) {
+						if (box2[i].innerHTML == t) {
+							box1[i].innerHTML = parseInt(box1[i].innerHTML) + 1;
+						}
+					}
+				}
+
+				if (!allMoney) {
+					allMoney = document.createElement('div');
+					allMoney.id = 'allMoney';
+				}
+
+				num += parseInt(m);
+				console.log('num',num);
+				allMoney.innerHTML = num + '￥';
+				list.appendChild(allMoney);
+			}
+
+		}
+
+	</script>
+</head>
+
+<body>
+	<div id='table'>
+		<ul>
+			<li draggable="true">
+				<img src='img/1.jpg' alt='jpg'>
+				<p>数据结构</p>
+				<p>12</p>
+			</li>
+			<li draggable="true">
+				<img src='img/1.jpg' alt='jpg'>
+				<p>数据1结构</p>
+				<p>12</p>
+			</li>
+			<li draggable="true">
+				<img src='img/1.jpg' alt='jpg'>
+				<p>数据22结构</p>
+				<p>12</p>
+			</li>
+			<li draggable="true">
+				<img src='img/1.jpg' alt='jpg'>
+				<p>数据222结构</p>
+				<p>12</p>
+			</li>
+		</ul>
+	</div>
+	<div id='list'></div>
+</body>
+
+</html>
+

@@ -52,13 +52,15 @@
         var three = document.getElementById('three');
         var four = document.getElementById('four');
 
-       var useCapture = false; //false为冒泡获取【目标元素先触发】    true为捕获获取【父级元素先触发】
+       var useCapture = false; 
+       //false为冒泡获取【目标元素先触发,一层一层向上】    true为捕获获取【父级元素先触发，一层一层向下】
+       //只会触发含有的同一事件     默认false
         one.addEventListener('click', function(event) {
             event || (event = window.event);
             console.log(event);
            console.log('one');
         }, useCapture);
-        two.addEventListener('click', function() {
+        two.addEventListener('hover', function() {
             console.log('two');
         }, useCapture);
         // three.addEventListener('click', function() {

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <title>document</title>
+        <style>
+            *{margin: 0;padding: 0}
+            ul{list-style: none}
+            #container{margin: 20px auto;width:650px;height:406px;overflow: hidden;position: relative;}
+            ul::after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+            ul{width:3900px;position: absolute;left:0;}
+            ul li{float: left;}
+        </style>
+        <script>
+            window.onload=function(){
+                let index=1;
+                let ul=document.getElementsByTagName('ul')[0];
+                let timer=setInterval(changeImg,1000);
+                function changeImg(){
+                    if(index<6){
+                        ul.style.left='-'+index*650+'px';
+                        index+=1;
+                    }else{
+                        index=0;
+                        ul.style.left='0px';
+                    }
+                }
+                ul.onmouseover=function(){
+                    clearInterval(timer);
+                }
+                ul.onmouseleave=function(){
+                    timer=setInterval(changeImg,1000);
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <div id='container'>
+            <ul>
+                <li><img src='image/big1.jpg'/></li>
+                <li><img src='image/big2.jpg'/></li>
+                <li><img src='image/big3.jpg'/></li>
+                <li><img src='image/big4.jpg'/></li>
+                <li><img src='image/big5.jpg'/></li>
+                <li><img src='image/big1.jpg'/></li>
+            </ul>
+        </div>
+    </body>
+</html>
